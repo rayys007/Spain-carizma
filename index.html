@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Spanish residence and student visas, company formation, business licences, franchise acquisition and trademark registration for clients in any country.">
+<title>Spain Carizma</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700&family=Amiri:wght@400;700&family=Cairo:wght@400;700&display=swap">
+<style>html,body{margin:0}</style>
+</head>
+<body>
+
+<style>
+/* Layout: conventional law-firm website. White and light-grey content sections over a fixed
+   flag video that shows through the hero and two full-width bands. Navy, gold, grey borders.
+   Seven languages; Arabic flips the page to RTL. */
+:root{
+  --white:#ffffff; --grey:#f4f5f7; --text:#333333; --muted:#666666; --border:#dddddd; --border-light:#e8e8e8;
+  --navy:#1b2a49; --navy-dark:#14213a; --gold:#b8963e; --gold-dark:#9c7d2f;
+  --shadow:0 2px 8px rgba(0,0,0,.08);
+  --serif:"Libre Baskerville",Georgia,"Times New Roman",serif;
+  --sans:"Lato","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
+}
+html[lang="ar"]{--serif:"Amiri","Libre Baskerville",serif;--sans:"Cairo","Lato",Arial,sans-serif}
+html[lang="ar"] .btn,html[lang="ar"] .tab,html[lang="ar"] .qn,html[lang="ar"] .pill,html[lang="ar"] .tag,html[lang="ar"] .logo b span,html[lang="ar"] .info b{letter-spacing:0}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--navy-dark);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--navy)}
+.flagbg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#6e1116}
+.flagbg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s linear}
+.flagbg video.on{opacity:1}
+.topbar,.bar,main,footer{position:relative;z-index:1}
+img,svg{max-width:100%}
+h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:700;line-height:1.3;color:var(--navy)}
+p{margin:0}
+a{color:var(--navy)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1170px;margin-inline:auto;
+  padding-left:max(20px,env(safe-area-inset-left,0px));
+  padding-right:max(20px,env(safe-area-inset-right,0px))}
+section{padding-block:70px}
+.section-title{text-align:center;margin-bottom:40px}
+.section-title h2{font-size:32px}
+.section-title .line{width:60px;height:3px;background:var(--gold);margin:16px auto 0}
+.section-title p{color:var(--muted);max-width:720px;margin:16px auto 0;font-size:17px}
+.white{background:var(--white)}
+.grey{background:var(--grey)}
+.band{background:rgba(27,42,73,.82);color:#fff}
+.band h2,.band h3{color:#fff}
+.band .section-title p{color:rgba(255,255,255,.85)}
+
+.btn{display:inline-block;font-family:var(--sans);font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+  padding:14px 28px;border-radius:4px;border:2px solid var(--gold);background:var(--gold);color:#fff;text-decoration:none;cursor:pointer;
+  transition:background .2s,border-color .2s,color .2s;text-align:center}
+.btn:hover{background:var(--gold-dark);border-color:var(--gold-dark)}
+.btn.navy{background:var(--navy);border-color:var(--navy)}
+.btn.navy:hover{background:var(--navy-dark);border-color:var(--navy-dark)}
+.btn.outline{background:transparent;color:#fff;border-color:#fff}
+.btn.outline:hover{background:#fff;color:var(--navy)}
+.btn.outline-navy{background:transparent;color:var(--navy);border-color:var(--navy)}
+.btn.outline-navy:hover{background:var(--navy);color:#fff}
+
+.topbar{background:var(--navy);color:#fff;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:6px;flex-wrap:wrap}
+.topbar span{display:inline-flex;align-items:center;gap:7px}
+.topbar svg{width:14px;height:14px}
+.topbar a{color:#fff;text-decoration:none}
+.topbar .right{display:flex;align-items:center;gap:18px}
+.langdd{position:relative}
+.langbtn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:13.5px;font-weight:700;letter-spacing:.04em;color:var(--navy);
+  background:#fff;border:1px solid var(--border);border-radius:4px;padding:10px 12px;cursor:pointer;transition:border-color .2s,background .2s}
+.langbtn:hover,.langbtn[aria-expanded="true"]{border-color:var(--gold)}
+.langbtn svg{width:16px;height:16px;color:var(--gold)}
+.langbtn .chev{width:12px;height:12px;color:var(--muted);transition:transform .2s}
+.langbtn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.langmenu{position:absolute;inset-inline-end:0;top:calc(100% + 8px);min-width:220px;background:#fff;border:1px solid var(--border);border-radius:4px;
+  box-shadow:0 10px 30px rgba(0,0,0,.14);padding:6px;margin:0;list-style:none;z-index:70;animation:dd .16s ease}
+.langmenu[hidden]{display:none}
+@keyframes dd{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.langmenu li{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 12px;border-radius:3px;cursor:pointer;font-size:14.5px;color:var(--text)}
+.langmenu li:hover,.langmenu li:focus{background:var(--grey);outline:0}
+.langmenu li[aria-selected="true"]{color:var(--navy);font-weight:700}
+.langmenu li[aria-selected="true"] .lc{color:var(--gold)}
+.langmenu .lc{font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+.langmenu .lc svg{width:14px;height:14px;vertical-align:-2px;margin-inline-start:6px}
+html[lang="ar"] .langmenu li{direction:ltr;text-align:left}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.bar .wrap{display:flex;align-items:center;gap:28px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy);margin-inline-end:auto}
+.logo .mark{width:40px;height:40px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;flex:none;font-family:"Libre Baskerville",Georgia,serif;font-weight:700;font-size:15px;color:var(--navy)}
+.logo b{font-family:"Libre Baskerville",Georgia,serif;font-size:22px;font-weight:700;line-height:1}
+.logo b span{display:block;white-space:nowrap;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+.bar nav{display:flex;gap:20px}
+.bar nav a{color:var(--text);text-decoration:none;font-size:14.5px;font-weight:700;white-space:nowrap;transition:color .2s}
+.bar nav a:hover{color:var(--gold)}
+.bar .btn{padding:11px 20px;font-size:13px;white-space:nowrap}
+@media (max-width:1260px){.bar nav{display:none}}
+@media (max-width:600px){.topbar .hide-m{display:none}.bar .wrap{gap:12px;padding-block:10px}.logo b{font-size:18px;white-space:nowrap}.logo b span{display:none}
+  .logo .mark{width:34px;height:34px;font-size:13px}.bar .btn{padding:9px 12px;font-size:12px}.langbtn{padding:8px 9px;gap:6px}.langbtn .chev{display:none}}
+
+.hero{position:relative;color:#fff;background:linear-gradient(rgba(20,33,58,.62),rgba(20,33,58,.62))}
+.hero .wrap{padding-block:100px 90px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:50px;align-items:center}
+.hero h1{font-size:46px;color:#fff;line-height:1.2}
+.hero .lead{margin-top:20px;font-size:18px;color:rgba(255,255,255,.9);max-width:60ch}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.hero-box{background:#fff;border-radius:4px;box-shadow:0 4px 20px rgba(0,0,0,.25);padding:28px 30px;color:var(--text)}
+.hero-box h3{font-size:20px;padding-bottom:14px;border-bottom:2px solid var(--gold);margin-bottom:6px}
+.hero-box .route{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--border-light)}
+.hero-box .route:last-child{border-bottom:0}
+.hero-box .route i{flex:none;width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-style:normal;font-size:13px;font-weight:700}
+.hero-box .route b{display:block;font-size:15.5px;color:var(--navy)}
+.hero-box .route span{font-size:14px;color:var(--muted)}
+@media (max-width:900px){.hero .wrap{grid-template-columns:minmax(0,1fr);padding-block:70px 60px}.hero h1{font-size:36px}}
+
+.stats{background:var(--white);border-bottom:1px solid var(--border)}
+.stats .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding-block:36px;text-align:center}
+.stat b{display:block;font-family:var(--serif);font-size:40px;color:var(--gold);line-height:1;font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:8px;font-size:15px;color:var(--muted)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.card{background:#fff;border:1px solid var(--border);border-radius:4px;box-shadow:var(--shadow);padding:30px 28px;min-width:0;transition:box-shadow .2s,transform .2s}
+.card:hover{box-shadow:0 6px 18px rgba(0,0,0,.12);transform:translateY(-3px)}
+.card .icon{width:64px;height:64px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;margin-bottom:20px}
+.card .icon svg{width:30px;height:30px}
+.card h3{font-size:20px;margin-bottom:10px}
+.card p{font-size:15.5px;color:var(--muted)}
+
+.tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:32px}
+.tab{font-family:var(--sans);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:12px 22px;border-radius:4px;
+  border:2px solid var(--navy);background:#fff;color:var(--navy);cursor:pointer;transition:background .2s,color .2s}
+.tab:hover{background:var(--grey)}
+.tab[aria-selected="true"]{background:var(--navy);color:#fff}
+.panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.panel[hidden]{display:none}
+.scard{background:#fff;border:1px solid var(--border);border-top:4px solid var(--gold);border-radius:4px;box-shadow:var(--shadow);padding:28px;min-width:0;display:flex;flex-direction:column;animation:pop .4s ease both}
+.scard:nth-child(2){animation-delay:.05s}.scard:nth-child(3){animation-delay:.1s}.scard:nth-child(4){animation-delay:.15s}
+.scard:nth-child(5){animation-delay:.2s}.scard:nth-child(6){animation-delay:.25s}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.scard .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.scard .num{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--gold)}
+.scard .pill{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.scard h3{font-size:19px}
+.scard p{font-size:15px;color:var(--muted);margin-top:8px}
+.scard ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px}
+.scard li{position:relative;padding-inline-start:24px;font-size:14.5px}
+.scard li::before{content:"";position:absolute;inset-inline-start:0;top:7px;width:12px;height:7px;border-left:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(-45deg)}
+.scard .more{margin-top:auto;padding-top:20px}
+.scard .more a{font-weight:700;font-size:14.5px;color:var(--navy);text-decoration:none}
+.scard .more a:hover{color:var(--gold)}
+.note{text-align:center;font-size:14px;color:var(--muted);margin-top:28px}
+
+.quiz{background:#fff;color:var(--text);border-radius:4px;box-shadow:0 4px 20px rgba(0,0,0,.25);padding:36px;max-width:880px;margin-inline:auto}
+.prog{height:6px;background:var(--grey);border-radius:3px;overflow:hidden}
+.prog i{display:block;height:100%;width:33%;background:var(--gold);transition:width .4s ease}
+.qstep{margin-top:26px}
+.qstep[hidden]{display:none}
+.qstep .qn{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gold)}
+.qstep h3{font-size:24px;margin-top:8px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:22px}
+.opt{font-family:var(--sans);font-size:15px;font-weight:700;text-align:start;cursor:pointer;color:var(--navy);
+  padding:14px 18px;border:1px solid var(--border);border-radius:4px;background:#fff;transition:border-color .2s,background .2s}
+.opt:hover{border-color:var(--gold);background:#fdfaf2}
+.opt[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.qnav{display:flex;justify-content:space-between;gap:12px;margin-top:22px}
+.qnav .back{font-family:var(--sans);font-size:14px;font-weight:700;background:transparent;border:0;color:var(--muted);cursor:pointer;padding:8px 0}
+.qnav .back:hover{color:var(--navy)}
+.verdict{margin-top:26px;animation:pop .4s ease both}
+.verdict .badge{display:inline-block;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;background:var(--gold);padding:5px 12px;border-radius:4px}
+.verdict h3{font-size:26px;margin-top:14px}
+.verdict p{margin-top:12px;color:var(--muted);font-size:16px}
+.verdict .next{margin-top:20px;display:grid;gap:12px}
+.verdict .next div{display:flex;gap:14px;align-items:flex-start;font-size:15px}
+.verdict .next b{flex:none;width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:13px}
+.verdict .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px;position:relative}
+.step{text-align:center;min-width:0}
+.step .n{width:64px;height:64px;border-radius:50%;background:var(--navy);color:var(--gold);font-family:var(--serif);font-size:26px;font-weight:700;
+  display:grid;place-items:center;margin:0 auto 18px;border:3px solid var(--gold);transition:transform .3s}
+.steps.go .step .n{transform:scale(1.06)}
+.step h3{font-size:19px;margin-bottom:10px}
+.step p{font-size:15px;color:var(--muted)}
+.step .tag{display:inline-block;margin-top:12px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--gold)}
+
+.two-col{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:50px;align-items:start}
+@media (max-width:860px){.two-col{grid-template-columns:minmax(0,1fr);gap:36px}}
+.two-col h2{font-size:30px}
+.line-l{width:60px;height:3px;background:var(--gold);margin:16px 0 20px}
+.two-col .intro{color:var(--muted);font-size:17px}
+.facts{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:14px}
+.facts li{display:flex;gap:14px;align-items:flex-start;font-size:15.5px}
+.facts svg{flex:none;width:22px;height:22px;color:var(--gold);margin-top:3px}
+.table-card{background:#fff;border:1px solid var(--border);border-radius:4px;box-shadow:var(--shadow);overflow:hidden}
+.table-card h3{background:var(--navy);color:#fff;font-size:18px;padding:16px 22px}
+.table-card .row{display:grid;grid-template-columns:1fr 1.3fr;gap:16px;padding:14px 22px;border-top:1px solid var(--border-light);font-size:14.5px}
+.table-card .row:nth-child(even){background:var(--grey)}
+.table-card .row strong{color:var(--navy)}
+.table-card .row span{color:var(--muted)}
+
+.cta-band{text-align:center;padding-block:80px}
+.cta-band h2{font-size:34px}
+.cta-band p{color:rgba(255,255,255,.88);font-size:18px;max-width:640px;margin:16px auto 0}
+.cta-band .btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:30px}
+
+.faq .list{max-width:860px;margin-inline:auto}
+details{border:1px solid var(--border);border-radius:4px;margin-bottom:12px;background:#fff}
+summary{cursor:pointer;list-style:none;padding-block:18px;padding-inline:22px 54px;font-family:var(--serif);font-weight:700;font-size:17px;color:var(--navy);position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;inset-inline-end:20px;top:50%;transform:translateY(-50%);font-family:var(--sans);font-size:26px;font-weight:400;color:var(--gold);transition:transform .25s}
+details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+details p{padding:16px 22px 20px;font-size:15.5px;color:var(--muted);border-top:1px solid var(--border-light)}
+
+.contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:50px;align-items:start}
+@media (max-width:860px){.contact-grid{grid-template-columns:minmax(0,1fr);gap:36px}}
+.contact-grid h2{font-size:30px}
+.info{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:18px}
+.info li{display:flex;gap:14px;align-items:flex-start;font-size:15.5px}
+.info .ic{flex:none;width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center}
+.info .ic svg{width:20px;height:20px}
+.info b{display:block;color:var(--navy);font-size:14px;text-transform:uppercase;letter-spacing:.04em}
+.info .mono{word-break:break-all;direction:ltr;unicode-bidi:isolate}
+.form{background:#fff;border:1px solid var(--border);border-radius:4px;box-shadow:var(--shadow);padding:32px}
+.field{display:grid;gap:6px;margin-bottom:16px}
+.field label{font-size:14px;font-weight:700;color:var(--navy)}
+.field input,.field select,.field textarea{font-family:var(--sans);font-size:15px;color:var(--text);background:#fff;
+  border:1px solid #cfcfcf;border-radius:4px;padding:12px 14px;width:100%;transition:border-color .2s,box-shadow .2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,150,62,.18)}
+.field textarea{min-height:120px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:520px){.two{grid-template-columns:1fr}}
+.small{font-size:13px;color:var(--muted);margin-top:12px}
+.copy{font-family:var(--sans);font-size:12px;font-weight:700;cursor:pointer;background:#fff;color:var(--navy);
+  border:1px solid var(--border);padding:4px 10px;border-radius:4px;margin-inline-start:8px}
+.copy:hover{border-color:var(--gold);color:var(--gold)}
+#sent{display:grid;gap:14px}
+#sent textarea{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;min-height:170px;direction:ltr}
+
+footer{background:var(--navy);color:rgba(255,255,255,.8);font-size:14.5px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;padding-block:56px 40px}
+@media (max-width:860px){.foot{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.foot{grid-template-columns:1fr}}
+.foot h4{color:#fff;font-size:16px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--gold);display:inline-block}
+.foot ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.foot a{color:rgba(255,255,255,.8);text-decoration:none}
+.foot a:hover{color:var(--gold)}
+.foot .logo{color:#fff;margin-bottom:14px}
+.foot .logo .mark{color:#fff}
+.copyright{border-top:1px solid rgba(255,255,255,.15);padding-block:18px;font-size:13px;color:rgba(255,255,255,.65)}
+.copyright .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+html.js .rv.in{opacity:1;transform:none}
+html.js .rv.d1{transition-delay:.1s}html.js .rv.d2{transition-delay:.2s}html.js .rv.d3{transition-delay:.3s}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html.js .rv{opacity:1;transform:none}
+}
+</style>
+
+<div class="flagbg" aria-hidden="true">
+  <video id="v1" muted playsinline preload="auto" src="flag.mp4"></video>
+  <video id="v2" muted playsinline preload="auto" src="flag.mp4"></video>
+</div>
+
+<div class="topbar">
+  <div class="wrap">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg><a href="#contact">hola@spaincarizma.com</a></span>
+    <span class="right">
+      <span class="hide-m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg><span data-i18n="top.serving">Serving clients worldwide</span></span>
+    </span>
+  </div>
+</div>
+
+<header class="bar" id="bar">
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <span class="mark" aria-hidden="true">SC</span>
+      <b>Spain Carizma<span data-i18n="logo.tag">Immigration &amp; Business Services</span></b>
+    </a>
+    <nav>
+      <a href="#why" data-i18n="nav.why">Why Us</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#eligibility" data-i18n="nav.elig">Eligibility</a>
+      <a href="#process" data-i18n="nav.process">Our Process</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="langdd" id="langdd">
+      <button class="langbtn" id="langbtn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>
+        <span id="langcur">EN</span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <ul class="langmenu" id="langmenu" role="listbox" aria-label="Language" hidden>
+        <li role="option" tabindex="-1" data-lang="en" aria-selected="true"><span class="ln">English</span><span class="lc">EN</span></li>
+        <li role="option" tabindex="-1" data-lang="es" aria-selected="false"><span class="ln">Español</span><span class="lc">ES</span></li>
+        <li role="option" tabindex="-1" data-lang="fr" aria-selected="false"><span class="ln">Français</span><span class="lc">FR</span></li>
+        <li role="option" tabindex="-1" data-lang="de" aria-selected="false"><span class="ln">Deutsch</span><span class="lc">DE</span></li>
+        <li role="option" tabindex="-1" data-lang="it" aria-selected="false"><span class="ln">Italiano</span><span class="lc">IT</span></li>
+        <li role="option" tabindex="-1" data-lang="pt" aria-selected="false"><span class="ln">Português</span><span class="lc">PT</span></li>
+        <li role="option" tabindex="-1" data-lang="ar" aria-selected="false"><span class="ln">العربية</span><span class="lc">AR</span></li>
+      </ul>
+    </div>
+    <a class="btn" href="#contact" data-i18n="nav.cta">Free Consultation</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1 data-i18n="hero.h1">Spanish Immigration &amp; Business Services for Clients Worldwide</h1>
+        <p class="lead" data-i18n="hero.lead">Residence visas, student visas, company formation, business licences and trademark registration in Spain.
+          One dedicated case manager, a clear document checklist and a fixed fee agreed in writing.</p>
+        <div class="cta">
+          <a class="btn" href="#eligibility" data-i18n="hero.cta1">Check Your Eligibility</a>
+          <a class="btn outline" href="#services" data-i18n="hero.cta2">Our Services</a>
+        </div>
+      </div>
+      <aside class="hero-box">
+        <h3 data-i18n="hero.box">Most Requested Visas</h3>
+        <div class="route"><i>1</i><div><b data-i18n="hero.r1.t">Digital Nomad Visa</b><span data-i18n="hero.r1.d">Work remotely for employers or clients abroad while living in Spain</span></div></div>
+        <div class="route"><i>2</i><div><b data-i18n="hero.r2.t">Non-Lucrative Residence Visa</b><span data-i18n="hero.r2.d">Live in Spain on your own means, without working</span></div></div>
+        <div class="route"><i>3</i><div><b data-i18n="hero.r3.t">Self-Employment Residence</b><span data-i18n="hero.r3.d">Through a franchise or a new business in Spain</span></div></div>
+        <div class="route"><i>4</i><div><b data-i18n="hero.r4.t">Student Visa</b><span data-i18n="hero.r4.d">Universities, business schools and language centres</span></div></div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat rv"><b data-count="11">0</b><span data-i18n="stat.1">Services, from visa to trademark</span></div>
+      <div class="stat rv d1"><b data-count="6">0</b><span data-i18n="stat.2">Residence visa routes</span></div>
+      <div class="stat rv d2"><b data-count="4">0</b><span data-i18n="stat.3">Steps from first call to residence card</span></div>
+      <div class="stat rv d3"><b data-count="1">0</b><span data-i18n="stat.4">Dedicated case manager per client</span></div>
+    </div>
+  </div>
+
+  <section class="white" id="why">
+    <div class="wrap">
+      <div class="section-title rv">
+        <h2 data-i18n="why.h2">Why Choose Spain Carizma</h2>
+        <div class="line"></div>
+        <p data-i18n="why.p">Most guidance on Spanish visas is written for people already in Europe. Our service is built for applicants
+          abroad: your country's documents, its legalisation rules and the Spanish consulate that covers it.</p>
+      </div>
+      <div class="cards">
+        <div class="card rv">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="m9 15 2 2 4-4"/></svg></div>
+          <h3 data-i18n="why.1.t">Correct Document Legalisation</h3>
+          <p data-i18n="why.1.p">Hague Convention countries use an apostille; others go through foreign-ministry attestation and the Spanish consulate. We map every document to the right chain and sworn translation.</p>
+        </div>
+        <div class="card rv d1">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg></div>
+          <h3 data-i18n="why.2.t">Filed at the Right Office</h3>
+          <p data-i18n="why.2.p">Your application goes to the Spanish consulate for your country of residence, or directly to Spain's fast-track unit for nomads, professionals and transfers, whichever is quicker for your case.</p>
+        </div>
+        <div class="card rv d2">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+          <h3 data-i18n="why.3.t">Visa and Business Together</h3>
+          <p data-i18n="why.3.p">Company formation, opening licences and trademark registration run in parallel with your permit, so your business is ready when you arrive.</p>
+        </div>
+        <div class="card rv">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3 data-i18n="why.4.t">Families Filed Together</h3>
+          <p data-i18n="why.4.p">Spouse, children and dependent parents included in the same submission wherever the route allows, with the income and housing evidence sized for the whole household.</p>
+        </div>
+        <div class="card rv d1">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></div>
+          <h3 data-i18n="why.5.t">Fixed Fees in Writing</h3>
+          <p data-i18n="why.5.p">Our fee and all official charges on one page before we begin. Government fees, translations and legalisation are passed through at cost.</p>
+        </div>
+        <div class="card rv d2">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3 data-i18n="why.6.t">Renewals Tracked</h3>
+          <p data-i18n="why.6.p">Your expiry dates are in our diary. We contact you before each renewal window opens so nothing lapses.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="grey" id="services">
+    <div class="wrap">
+      <div class="section-title rv">
+        <h2 data-i18n="svc.h2">Our Services</h2>
+        <div class="line"></div>
+        <p data-i18n="svc.p">Eleven services handled by one team, each managed end to end: eligibility, documents, legalisation, filing and follow-up.</p>
+      </div>
+      <div class="tabs rv" role="tablist" aria-label="Service groups">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="p-res" id="t-res" type="button" data-i18n="svc.tab1">Residence Visas</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-stu" id="t-stu" type="button" data-i18n="svc.tab2">Student Visa</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="p-biz" id="t-biz" type="button" data-i18n="svc.tab3">Business Services</button>
+      </div>
+
+      <div class="panel" id="p-res" role="tabpanel" aria-labelledby="t-res">
+        <article class="scard" id="s-nonlucrative">
+          <div class="top"><span class="num">01</span><span class="pill" data-i18n="pill.res">Residence</span></div>
+          <h3 data-i18n="svc.1.t">Non-Lucrative Residence Visa</h3>
+          <p data-i18n="svc.1.d">Residence in Spain on savings, rental income or a pension, without working there.</p>
+          <ul>
+            <li data-i18n="svc.1.b1">Income or assets evidenced for every family member</li>
+            <li data-i18n="svc.1.b2">Full private Spanish health cover arranged</li>
+            <li data-i18n="svc.1.b3">Police certificate and medical legalised and translated</li>
+            <li data-i18n="svc.1.b4">Consulate appointment booked in your country</li>
+          </ul>
+          <div class="more"><a href="#eligibility" data-i18n="more.elig">Check your eligibility &rsaquo;</a></div>
+        </article>
+        <article class="scard" id="s-nomad">
+          <div class="top"><span class="num">02</span><span class="pill" data-i18n="pill.res">Residence</span></div>
+          <h3 data-i18n="svc.2.t">Digital Nomad Visa</h3>
+          <p data-i18n="svc.2.d">Keep your employment or clients outside Spain and live there for up to three years, renewable.</p>
+          <ul>
+            <li data-i18n="svc.2.b1">Employer letter or client contracts prepared</li>
+            <li data-i18n="svc.2.b2">Spanish-source income limit checked before filing</li>
+            <li data-i18n="svc.2.b3">Spouse and children on the same application</li>
+            <li data-i18n="svc.2.b4">Fast-track filing with Spain's UGE-CE unit</li>
+          </ul>
+          <div class="more"><a href="#eligibility" data-i18n="more.elig">Check your eligibility &rsaquo;</a></div>
+        </article>
+        <article class="scard" id="s-selfemployed">
+          <div class="top"><span class="num">03</span><span class="pill" data-i18n="pill.work">Residence &amp; Work</span></div>
+          <h3 data-i18n="svc.3.t">Residence with Self-Employment Authorisation</h3>
+          <p data-i18n="svc.3.d">Through the acquisition of a franchise or the establishment of a business in Spain.</p>
+          <ul>
+            <li data-i18n="svc.3.b1">Business plan and viability report</li>
+            <li data-i18n="svc.3.b2">Franchise agreement or company formation in parallel</li>
+            <li data-i18n="svc.3.b3">Proof of investment and source of funds</li>
+            <li data-i18n="svc.3.b4">Licences and registrations handled with services 08 to 10</li>
+          </ul>
+          <div class="more"><a href="#eligibility" data-i18n="more.elig">Check your eligibility &rsaquo;</a></div>
+        </article>
+        <article class="scard" id="s-family">
+          <div class="top"><span class="num">04</span><span class="pill" data-i18n="pill.res">Residence</span></div>
+          <h3 data-i18n="svc.4.t">Family Reunification Visa</h3>
+          <p data-i18n="svc.4.d">For a spouse, children or dependent parents joining a holder of Spanish residence.</p>
+          <ul>
+            <li data-i18n="svc.4.b1">Housing adequacy report from the town hall</li>
+            <li data-i18n="svc.4.b2">Household income evidence</li>
+            <li data-i18n="svc.4.b3">Marriage and birth certificates legalised and sworn-translated</li>
+            <li data-i18n="svc.4.b4">Relatives' visas at the consulate in their own country</li>
+          </ul>
+          <div class="more"><a href="#eligibility" data-i18n="more.elig">Check your eligibility &rsaquo;</a></div>
+        </article>
+        <article class="scard" id="s-hqp">
+          <div class="top"><span class="num">05</span><span class="pill" data-i18n="pill.work">Residence &amp; Work</span></div>
+          <h3 data-i18n="svc.5.t">Highly Qualified Professionals &amp; Researchers</h3>
+          <p data-i18n="svc.5.d">Residence and work visa for a position with a Spanish employer or a research institution.</p>
+          <ul>
+            <li data-i18n="svc.5.b1">Qualifications and experience mapped to the role</li>
+            <li data-i18n="svc.5.b2">Employer file prepared with their HR team</li>
+            <li data-i18n="svc.5.b3">Family included in the same submission</li>
+            <li data-i18n="svc.5.b4">Fast-track decision through UGE-CE</li>
+          </ul>
+          <div class="more"><a href="#eligibility" data-i18n="more.elig">Check your eligibility &rsaquo;</a></div>
+        </article>
+        <article class="scard" id="s-ict">
+          <div class="top"><span class="num">06</span><span class="pill" data-i18n="pill.work">Residence &amp; Work</span></div>
+          <h3 data-i18n="svc.6.t">Intra-Company Transfer (ICT)</h3>
+          <p data-i18n="svc.6.d">Authorisation for staff transferred from a group company abroad into its Spanish entity.</p>
+          <ul>
+            <li data-i18n="svc.6.b1">Group relationship and posting evidenced</li>
+            <li data-i18n="svc.6.b2">Seniority and continued home employment confirmed</li>
+            <li data-i18n="svc.6.b3">Social security position checked</li>
+            <li data-i18n="svc.6.b4">Several transferees filed as one batch</li>
+          </ul>
+          <div class="more"><a href="#eligibility" data-i18n="more.elig">Check your eligibility &rsaquo;</a></div>
+        </article>
+      </div>
+
+      <div class="panel" id="p-stu" role="tabpanel" aria-labelledby="t-stu" hidden>
+        <article class="scard" id="s-student">
+          <div class="top"><span class="num">07</span><span class="pill" data-i18n="pill.study">Study</span></div>
+          <h3 data-i18n="svc.7.t">Student Visa</h3>
+          <p data-i18n="svc.7.d">For study at a Spanish university, business school or language centre, with part-time work where the course allows it.</p>
+          <ul>
+            <li data-i18n="svc.7.b1">Enrolment letter and course hours verified first</li>
+            <li data-i18n="svc.7.b2">Means of support and health cover for the full stay</li>
+            <li data-i18n="svc.7.b3">Academic records and certificates legalised</li>
+            <li data-i18n="svc.7.b4">Yearly extensions and the later move to a work permit</li>
+          </ul>
+          <div class="more"><a href="#eligibility" data-i18n="more.elig">Check your eligibility &rsaquo;</a></div>
+        </article>
+        <article class="scard">
+          <div class="top"><span class="num">&nbsp;</span><span class="pill" data-i18n="pill.fam">Accompanying Family</span></div>
+          <h3 data-i18n="svc.f.t">Parents, Guardians and Spouses</h3>
+          <p data-i18n="svc.f.d">Guardians of minor students and spouses of adult students can often apply alongside. We confirm what is possible for your course and circumstances.</p>
+          <ul>
+            <li data-i18n="svc.f.b1">Guardian arrangements for students under 18</li>
+            <li data-i18n="svc.f.b2">Accommodation and insurance for the family</li>
+          </ul>
+          <div class="more"><a href="#contact" data-i18n="more.case">Discuss your case &rsaquo;</a></div>
+        </article>
+      </div>
+
+      <div class="panel" id="p-biz" role="tabpanel" aria-labelledby="t-biz" hidden>
+        <article class="scard" id="s-franchise">
+          <div class="top"><span class="num">08</span><span class="pill" data-i18n="pill.biz">Business</span></div>
+          <h3 data-i18n="svc.8.t">Franchise Application &amp; Acquisition</h3>
+          <p data-i18n="svc.8.d">Access to franchise opportunities in Spain and every procedure through to signature and acquisition.</p>
+          <ul>
+            <li data-i18n="svc.8.b1">Shortlist by sector, city, investment and return</li>
+            <li data-i18n="svc.8.b2">Franchisor documents and fees reviewed</li>
+            <li data-i18n="svc.8.b3">Negotiation through to signature</li>
+            <li data-i18n="svc.8.b4">Pairs with the residence permit in service 03</li>
+          </ul>
+          <div class="more"><a href="#contact" data-i18n="more.franchise">Discuss a franchise &rsaquo;</a></div>
+        </article>
+        <article class="scard" id="s-licences">
+          <div class="top"><span class="num">09</span><span class="pill" data-i18n="pill.biz">Business</span></div>
+          <h3 data-i18n="svc.9.t">Establishment, Construction &amp; Opening Licences</h3>
+          <p data-i18n="svc.9.d">Licences for the construction, fit-out and opening of all types of business premises.</p>
+          <ul>
+            <li data-i18n="svc.9.b1">Activity classified and the correct procedure chosen with the municipality</li>
+            <li data-i18n="svc.9.b2">Technical project, fire safety and accessibility coordinated</li>
+            <li data-i18n="svc.9.b3">Works licence or responsible declaration filed</li>
+            <li data-i18n="svc.9.b4">Inspections attended until the premises may legally open</li>
+          </ul>
+          <div class="more"><a href="#contact" data-i18n="more.premises">Plan a premises &rsaquo;</a></div>
+        </article>
+        <article class="scard" id="s-company">
+          <div class="top"><span class="num">10</span><span class="pill" data-i18n="pill.biz">Business</span></div>
+          <h3 data-i18n="svc.10.t">Company Formation</h3>
+          <p data-i18n="svc.10.d">A Spanish company ready to trade, incorporated from abroad by power of attorney if preferred.</p>
+          <ul>
+            <li data-i18n="svc.10.b1">Name reservation at the Central Mercantile Registry</li>
+            <li data-i18n="svc.10.b2">NIE and tax numbers for shareholders and directors</li>
+            <li data-i18n="svc.10.b3">Deed of incorporation before a notary</li>
+            <li data-i18n="svc.10.b4">Tax, social security and Mercantile Registry registration</li>
+          </ul>
+          <div class="more"><a href="#contact" data-i18n="more.company">Form a company &rsaquo;</a></div>
+        </article>
+        <article class="scard" id="s-trademark">
+          <div class="top"><span class="num">11</span><span class="pill" data-i18n="pill.biz">Business</span></div>
+          <h3 data-i18n="svc.11.t">Trademark Registration (SPTO)</h3>
+          <p data-i18n="svc.11.d">Registration with the Spanish Patent and Trademark Office, with extension to the EU when required.</p>
+          <ul>
+            <li data-i18n="svc.11.b1">Availability search before filing</li>
+            <li data-i18n="svc.11.b2">Nice classes selected for the goods and services concerned</li>
+            <li data-i18n="svc.11.b3">Filing, oppositions and renewals handled</li>
+            <li data-i18n="svc.11.b4">Extension to an EU trademark on request</li>
+          </ul>
+          <div class="more"><a href="#contact" data-i18n="more.trademark">Protect a trademark &rsaquo;</a></div>
+        </article>
+      </div>
+      <p class="note rv" data-i18n="svc.note">Official requirements, thresholds and processing times change. We confirm in writing what applies to your case before any fee is payable.</p>
+    </div>
+  </section>
+
+  <section class="band" id="eligibility">
+    <div class="wrap">
+      <div class="section-title rv">
+        <h2 data-i18n="elig.h2">Check Your Eligibility</h2>
+        <div class="line"></div>
+        <p data-i18n="elig.p">Answer three questions for an initial indication of your route. We confirm it properly at your consultation.</p>
+      </div>
+      <div class="quiz rv" id="quiz">
+        <div class="prog"><i id="prog"></i></div>
+        <div class="qstep" data-step="1">
+          <p class="qn" data-i18n="q.1">Question 1 of 3</p>
+          <h3 data-i18n="q1.h">What do you intend to do in Spain?</h3>
+          <div class="opts" data-key="goal">
+            <button class="opt" type="button" aria-pressed="false" data-v="nomad" data-i18n="q1.o1">Work remotely for employers or clients abroad</button>
+            <button class="opt" type="button" aria-pressed="false" data-v="nonlucrative" data-i18n="q1.o2">Live there without working</button>
+            <button class="opt" type="button" aria-pressed="false" data-v="hqp" data-i18n="q1.o3">Take a job with a Spanish employer</button>
+            <button class="opt" type="button" aria-pressed="false" data-v="ict" data-i18n="q1.o4">Transfer within my employer's group</button>
+            <button class="opt" type="button" aria-pressed="false" data-v="selfemployed" data-i18n="q1.o5">Start a business or buy a franchise</button>
+            <button class="opt" type="button" aria-pressed="false" data-v="student" data-i18n="q1.o6">Study at a Spanish institution</button>
+            <button class="opt" type="button" aria-pressed="false" data-v="family" data-i18n="q1.o7">Join family already living in Spain</button>
+          </div>
+        </div>
+        <div class="qstep" data-step="2" hidden>
+          <p class="qn" data-i18n="q.2">Question 2 of 3</p>
+          <h3 data-i18n="q2.h">Where are you currently living?</h3>
+          <div class="opts" data-key="where">
+            <button class="opt" type="button" aria-pressed="false" data-v="home" data-i18n="q2.o1">In my country of citizenship</button>
+            <button class="opt" type="button" aria-pressed="false" data-v="abroad" data-i18n="q2.o2">Abroad, in a country where I am not a citizen</button>
+            <button class="opt" type="button" aria-pressed="false" data-v="eu" data-i18n="q2.o3">In the EU, outside Spain</button>
+            <button class="opt" type="button" aria-pressed="false" data-v="spain" data-i18n="q2.o4">Already in Spain</button>
+          </div>
+        </div>
+        <div class="qstep" data-step="3" hidden>
+          <p class="qn" data-i18n="q.3">Question 3 of 3</p>
+          <h3 data-i18n="q3.h">Who will move with you?</h3>
+          <div class="opts" data-key="family">
+            <button class="opt" type="button" aria-pressed="false" data-v="solo" data-i18n="q3.o1">Just me</button>
+            <button class="opt" type="button" aria-pressed="false" data-v="partner" data-i18n="q3.o2">My spouse or partner</button>
+            <button class="opt" type="button" aria-pressed="false" data-v="kids" data-i18n="q3.o3">Spouse and children</button>
+            <button class="opt" type="button" aria-pressed="false" data-v="parents" data-i18n="q3.o4">Family including dependent parents</button>
+          </div>
+        </div>
+        <div class="verdict" id="verdict" hidden></div>
+        <div class="qnav">
+          <button class="back" type="button" id="qback" hidden data-i18n="q.back">&larr; Back</button>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="white" id="process">
+    <div class="wrap">
+      <div class="section-title rv">
+        <h2 data-i18n="proc.h2">Our Process</h2>
+        <div class="line"></div>
+        <p data-i18n="proc.p">Four steps, always in the same order. You always know which step your file is in and what is outstanding.</p>
+      </div>
+      <div class="steps rv" id="tl">
+        <div class="step"><div class="n">1</div>
+          <h3 data-i18n="proc.1.t">Eligibility Consultation</h3>
+          <p data-i18n="proc.1.p">By video, in your time zone. You leave knowing which routes you qualify for, how long each takes, and the fixed fee.</p>
+          <span class="tag" data-i18n="proc.1.tag">Any country</span></div>
+        <div class="step"><div class="n">2</div>
+          <h3 data-i18n="proc.2.t">Documents &amp; Legalisation</h3>
+          <p data-i18n="proc.2.p">A checklist for your case: who issues each document, whether it needs an apostille or embassy legalisation, and the sworn translation.</p>
+          <span class="tag" data-i18n="proc.2.tag">Your country</span></div>
+        <div class="step"><div class="n">3</div>
+          <h3 data-i18n="proc.3.t">Filing &amp; Follow-Up</h3>
+          <p data-i18n="proc.3.p">Submitted at the Spanish consulate for your place of residence, or in Spain through the fast-track unit. We follow the file until a decision is issued.</p>
+          <span class="tag" data-i18n="proc.3.tag">Consulate or Spain</span></div>
+        <div class="step"><div class="n">4</div>
+          <h3 data-i18n="proc.4.t">Arrival &amp; After</h3>
+          <p data-i18n="proc.4.p">Fingerprints and residence card, municipal registration, social security, bank account, and renewal dates entered in our diary.</p>
+          <span class="tag" data-i18n="proc.4.tag">Spain</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="grey" id="office">
+    <div class="wrap two-col">
+      <div class="rv">
+        <h2 data-i18n="off.h2">One Team for Clients in Any Country</h2>
+        <div class="line-l"></div>
+        <p class="intro" data-i18n="off.p">Your file is prepared by people who deal with the Spanish administration every day and filed through the
+          Spanish consulate that covers wherever you live. Consultations are held by video, scheduled to your time zone.</p>
+        <ul class="facts">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg><span data-i18n="off.f1">Clients from any country, filing through any Spanish consulate</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg><span data-i18n="off.f2">English, Spanish, French, German, Italian, Portuguese and Arabic</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg><span data-i18n="off.f3">Apostille or embassy legalisation, sworn translation and consulate requirements managed as one chain</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg><span data-i18n="off.f4">Video consultations scheduled to your time zone</span></li>
+        </ul>
+        <div style="margin-top:28px"><a class="btn navy" href="#contact" data-i18n="off.cta">Book a Consultation</a></div>
+      </div>
+      <div class="table-card rv d1">
+        <h3 data-i18n="off.tbl">Applying From Abroad</h3>
+        <div class="row"><strong data-i18n="off.r1.k">Filing office</strong><span data-i18n="off.r1.v">Spanish consulate for your country, or Spain's fast-track unit</span></div>
+        <div class="row"><strong data-i18n="off.r2.k">Hague countries</strong><span data-i18n="off.r2.v">Apostille on each public document</span></div>
+        <div class="row"><strong data-i18n="off.r3.k">Other countries</strong><span data-i18n="off.r3.v">Foreign-ministry attestation, then Spanish consulate</span></div>
+        <div class="row"><strong data-i18n="off.r4.k">Translations</strong><span data-i18n="off.r4.v">Sworn translator recognised in Spain</span></div>
+        <div class="row"><strong data-i18n="off.r5.k">Police certificates</strong><span data-i18n="off.r5.v">From each country of recent residence</span></div>
+        <div class="row"><strong data-i18n="off.r6.k">Fast-track routes</strong><span data-i18n="off.r6.v">Nomad, HQP and ICT filed directly in Spain</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band cta-band">
+    <div class="wrap rv">
+      <h2 data-i18n="cta.h2">Ready to Start Your Move to Spain?</h2>
+      <p data-i18n="cta.p">Tell us about your situation and we will reply with the routes that apply, what each requires, and a fixed quotation.</p>
+      <div class="btns">
+        <a class="btn" href="#contact" data-i18n="cta.b1">Request a Free Consultation</a>
+        <a class="btn outline" href="#eligibility" data-i18n="cta.b2">Check Eligibility</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="white faq" id="faq">
+    <div class="wrap">
+      <div class="section-title rv">
+        <h2 data-i18n="faq.h2">Frequently Asked Questions</h2>
+        <div class="line"></div>
+      </div>
+      <div class="list rv">
+        <details><summary data-i18n="faq.1.q">Do I need to be in Spain to apply?</summary>
+          <p data-i18n="faq.1.a">Usually not. Most routes are filed through the Spanish consulate for the country where you legally reside, and the nomad, highly qualified and intra-company routes can be filed directly in Spain by a representative. Your first trip can be the one where you move.</p></details>
+        <details><summary data-i18n="faq.2.q">What is the difference between an apostille and legalisation?</summary>
+          <p data-i18n="faq.2.a">If your document was issued in a country that belongs to the Hague Apostille Convention, a single apostille makes it valid in Spain. If not, it is attested by that country's foreign ministry and then legalised at the Spanish consulate. In either case it then requires a sworn translation into Spanish.</p></details>
+        <details><summary data-i18n="faq.3.q">How long does the process take?</summary>
+          <p data-i18n="faq.3.a">It depends on the route and on consulate appointment availability, which is often the longest part. Fast-track routes filed in Spain are usually quicker. We give you a realistic range for your own case at the first consultation.</p></details>
+        <details><summary data-i18n="faq.4.q">Can my family come with me?</summary>
+          <p data-i18n="faq.4.a">On most routes, yes, and on several the family applications are submitted at the same time as yours. Where a separate reunification file is required, we set out in advance the income and housing evidence it will need.</p></details>
+        <details><summary data-i18n="faq.5.q">Can I keep my current job or company?</summary>
+          <p data-i18n="faq.5.a">Often, yes. The Digital Nomad Visa is designed for exactly that, within a limit on Spanish-source income. Other routes have their own rules on work, and some, such as the non-lucrative visa, do not permit working in Spain. We confirm this before you choose a route.</p></details>
+        <details><summary data-i18n="faq.6.q">How are fees structured?</summary>
+          <p data-i18n="faq.6.a">Our fee depends on the route and the number of applicants on the file. It is fixed and confirmed in writing before we begin. Government fees, legalisation, translations, notary and registry charges are passed through at cost and itemised separately.</p></details>
+        <details><summary data-i18n="faq.7.q">Is this legal advice?</summary>
+          <p data-i18n="faq.7.a">We manage procedures and filings. Where a case requires a lawyer, a tax adviser or a technical architect, we say so and work alongside them.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="grey" id="contact">
+    <div class="wrap contact-grid">
+      <div class="rv">
+        <h2 data-i18n="con.h2">Request a Consultation</h2>
+        <div class="line-l"></div>
+        <p class="intro" style="color:var(--muted);font-size:17px" data-i18n="con.p">Outline your situation and the service you believe you need. We reply with the routes that apply, what each requires, and a fixed quotation.</p>
+        <ul class="info">
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></span>
+            <div><b data-i18n="con.l1">Email</b><span class="mono" id="addr">hola@spaincarizma.com</span><button class="copy" type="button" id="copybtn" data-i18n="copy">Copy</button></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg></span>
+            <div><b data-i18n="con.l2">Consultations</b><span data-i18n="con.l2.v">By video, for clients in any country</span></div></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+            <div><b data-i18n="con.l3">Hours</b><span data-i18n="con.l3.v">Scheduled to your time zone</span></div></li>
+        </ul>
+      </div>
+      <div class="form rv d1">
+        <form id="form" novalidate>
+          <div class="two">
+            <div class="field"><label for="f-name" data-i18n="form.name">Full Name *</label><input id="f-name" name="name" required autocomplete="name"></div>
+            <div class="field"><label for="f-email" data-i18n="form.email">Email *</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+          </div>
+          <div class="two">
+            <div class="field"><label for="f-phone" data-i18n="form.phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="With country code" data-i18n-ph="form.phone.ph"></div>
+            <div class="field"><label for="f-country" data-i18n="form.country">Country of Residence</label><input id="f-country" name="country" autocomplete="country-name"></div>
+          </div>
+          <div class="field"><label for="f-svc" data-i18n="form.svc">Service</label>
+            <select id="f-svc" name="service"><option data-i18n="form.svc.0">Not sure yet &mdash; please advise</option></select></div>
+          <div class="field"><label for="f-msg" data-i18n="form.msg">Your Situation</label>
+            <textarea id="f-msg" name="message" placeholder="Nationality, accompanying family, timing, employment or business plans, anything already filed." data-i18n-ph="form.msg.ph"></textarea></div>
+          <button class="btn" type="submit" style="width:100%" data-i18n="form.submit">Send Request</button>
+          <p class="small" data-i18n="form.small">Your details are used only to respond to your enquiry and are not shared with third parties.</p>
+        </form>
+        <div id="sent" hidden aria-live="polite">
+          <h3 style="font-size:22px" data-i18n="sent.t">Your enquiry is ready to send</h3>
+          <p class="small" style="margin-top:0"><span data-i18n="sent.p">This demonstration form is not yet connected to an inbox. Copy the summary below into an email to</span> <strong>hola@spaincarizma.com</strong>.</p>
+          <div class="field"><textarea id="summary" readonly aria-label="Enquiry summary"></textarea></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="copy" type="button" id="copysum" style="margin:0" data-i18n="sent.copy">Copy summary</button>
+            <button class="copy" type="button" id="backbtn" style="margin:0" data-i18n="sent.edit">Edit details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <a class="logo" href="#top"><span class="mark" aria-hidden="true">SC</span><b>Spain Carizma<span data-i18n="logo.tag">Immigration &amp; Business Services</span></b></a>
+      <p data-i18n="foot.desc">Spanish residence and student visas, company formation, business licences, franchise acquisition and trademark registration, for clients in any country.</p>
+    </div>
+    <div>
+      <h4 data-i18n="foot.visas">Visas</h4>
+      <ul>
+        <li><a href="#s-nonlucrative" data-i18n="fl.1">Non-Lucrative Residence</a></li>
+        <li><a href="#s-nomad" data-i18n="fl.2">Digital Nomad Visa</a></li>
+        <li><a href="#s-selfemployed" data-i18n="fl.3">Self-Employment Residence</a></li>
+        <li><a href="#s-family" data-i18n="fl.4">Family Reunification</a></li>
+        <li><a href="#s-hqp" data-i18n="fl.5">Highly Qualified Professionals</a></li>
+        <li><a href="#s-ict" data-i18n="fl.6">Intra-Company Transfer</a></li>
+        <li><a href="#s-student" data-i18n="fl.7">Student Visa</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="foot.business">Business</h4>
+      <ul>
+        <li><a href="#s-franchise" data-i18n="fl.8">Franchise Acquisition</a></li>
+        <li><a href="#s-licences" data-i18n="fl.9">Business Licences</a></li>
+        <li><a href="#s-company" data-i18n="fl.10">Company Formation</a></li>
+        <li><a href="#s-trademark" data-i18n="fl.11">Trademark Registration</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="foot.quick">Quick Links</h4>
+      <ul>
+        <li><a href="#why" data-i18n="nav.why">Why Us</a></li>
+        <li><a href="#eligibility" data-i18n="nav.elig">Eligibility</a></li>
+        <li><a href="#process" data-i18n="nav.process">Our Process</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">
+    <div class="wrap">
+      <span data-i18n="foot.copy">&copy; Spain Carizma. All rights reserved.</span>
+      <span data-i18n="foot.disc">Information on this site is general and not a substitute for advice on your own case.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n-en.js"></script>
+<script src="i18n-es.js"></script>
+<script src="i18n-fr.js"></script>
+<script src="i18n-de.js"></script>
+<script src="i18n-it.js"></script>
+<script src="i18n-pt.js"></script>
+<script src="i18n-ar.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
